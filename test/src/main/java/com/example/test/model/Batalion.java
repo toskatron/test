@@ -1,7 +1,8 @@
 package com.example.test.model;
 
-
 import java.util.List;
+import java.util.ArrayList;
+
 
 public class Batalion {
 
@@ -10,14 +11,19 @@ public class Batalion {
     private List<Gnom> gnomi;
     private List<Enti> enti;
 
+
     public Batalion() {
+        this.elfi = new ArrayList<>();
+        this.gnomi = new ArrayList<>();
+        this.enti = new ArrayList<>();
     }
+
 
     public Batalion(String nume, List<Elf> elfi, List<Gnom> gnomi, List<Enti> enti) {
         this.nume = nume;
-        this.elfi = elfi;
-        this.gnomi = gnomi;
-        this.enti = enti;
+        this.elfi = new ArrayList<>(elfi);
+        this.gnomi = new ArrayList<>(gnomi);
+        this.enti = new ArrayList<>(enti);
     }
 
 
@@ -53,17 +59,56 @@ public class Batalion {
         this.enti = enti;
     }
 
-    public void addElf(Elf elf) {
+
+    public void adaugaElf(Elf elf) {
         this.elfi.add(elf);
     }
 
 
-    public String descriere() {
-        return "Batalion {" +
+    public boolean eliminaElf(Elf elf) {
+        return this.elfi.remove(elf);
+    }
+
+    public void adaugaGnom(Gnom gnom) {
+        this.gnomi.add(gnom);
+    }
+
+
+    public boolean eliminaGnom(Gnom gnom) {
+        return this.gnomi.remove(gnom);
+    }
+
+
+    public void adaugaEnt(Enti ent) {
+        this.enti.add(ent);
+    }
+
+
+    public boolean eliminaEnt(Enti ent) {
+        return this.enti.remove(ent);
+    }
+
+
+    public int numarTotalMembri() {
+        return elfi.size() + gnomi.size() + enti.size();
+    }
+
+
+    public boolean esteEchilibrat() {
+        int numarElfi = elfi.size();
+        int numarGnomi = gnomi.size();
+        int numarEnti = enti.size();
+        return numarElfi == numarGnomi && numarGnomi == numarEnti;
+    }
+
+    @Override
+    public String toString() {
+        return "Batalion{" +
                 "nume='" + nume + '\'' +
-                ", numarElfi=" + elfi.size() +
-                ", numarGnomi=" + gnomi.size() +
-                ", numarEnti=" + enti.size() +
+                ", elfi=" + elfi +
+                ", gnomi=" + gnomi +
+                ", enti=" + enti +
                 '}';
     }
+
 }

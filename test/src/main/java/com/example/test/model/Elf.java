@@ -1,12 +1,11 @@
 package com.example.test.model;
 
 
-public class Elf {
+public class Elf implements Creatura{
 
     private String nume;
     private int varsta;
     private String armaPreferata;
-
 
     public Elf() {
     }

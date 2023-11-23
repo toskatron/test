@@ -1,8 +1,8 @@
 package com.example.test.manager;
 
+import com.example.test.model.*;
 
-
-import com.example.test.model.Batalion;
+import java.util.ArrayList;
 
 public class BatalionManager {
 
@@ -11,6 +11,19 @@ public class BatalionManager {
 
     private BatalionManager() {
         batalion = new Batalion();
+        initBatalion();
+    }
+
+    private void initBatalion() {
+        // Inițializează listele pentru fiecare tip de creatură
+        batalion.setElfi(new ArrayList<>());
+        batalion.setGnomi(new ArrayList<>());
+        batalion.setEnti(new ArrayList<>());
+
+        // Adaugă câteva exemple de creaturi
+        batalion.getElfi().add(new Elf("Legolas", 100, "Arc"));
+        batalion.getGnomi().add(new Gnom("Gimli", "Războinic", true));
+        batalion.getEnti().add(new Enti("Treebeard", "Pădurea Veche", 14));
     }
 
     public static BatalionManager getInstance() {
@@ -25,4 +38,5 @@ public class BatalionManager {
     }
 
 }
+
 

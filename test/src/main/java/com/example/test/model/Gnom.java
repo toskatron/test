@@ -1,6 +1,6 @@
 package com.example.test.model;
 
-public class Gnom {
+public class Gnom implements Creatura{
 
     private String nume;
     private String meserie;

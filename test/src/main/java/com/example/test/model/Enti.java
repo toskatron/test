@@ -1,7 +1,7 @@
 package com.example.test.model;
 
 
-public class Enti {
+public class Enti implements Creatura{
 
     private String nume;
     private String locatie;
